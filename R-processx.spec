@@ -2,7 +2,7 @@
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          3.0.3
+Version:          3.1.0
 Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
@@ -12,14 +12,15 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.
 
 # Here's the R view of the dependencies world:
 # Depends:
-# Imports:   R-assertthat, R-crayon, R-debugme, R-R6, R-utils
-# Suggests:  R-covr, R-testthat, R-withr
-# LinkingTo:
+# Imports:   R-assertthat, R-crayon, R-R6, R-utils
+# Suggests:  R-covr, R-debugme, R-parallel, R-testthat, R-withr
+# LinkingTo: R-testthat
 # Enhances:
 
 Requires:         R-assertthat
 Requires:         R-crayon
 Requires:         R-debugme
+Requires:         R-parallel
 Requires:         R-R6
 Requires:         R-utils
 BuildRequires:    R-devel
@@ -27,6 +28,7 @@ BuildRequires:    tex(latex)
 BuildRequires:    R-assertthat
 BuildRequires:    R-crayon
 BuildRequires:    R-debugme
+BuildRequires:    R-parallel
 BuildRequires:    R-R6
 BuildRequires:    R-utils
 BuildRequires:    R-testthat
@@ -69,6 +71,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %{rlibdir}/%{packname}/DESCRIPTION
 %doc %{rlibdir}/%{packname}/NEWS.md
 %doc %{rlibdir}/%{packname}/README.markdown
+%doc %{rlibdir}/%{packname}/CODE_OF_CONDUCT.md
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/INDEX
 %{rlibdir}/%{packname}/NAMESPACE
@@ -81,6 +84,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 
 
 %changelog
+* Thu May 17 2018 Tom Callaway <spot@fedoraproject.org> - 3.1.0-1
+- update to 3.1.0
+
 * Mon May 07 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.0.3-1
 - Update to latest version
 
