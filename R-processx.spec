@@ -4,7 +4,7 @@
 
 Name:             R-%{packname}
 Version:          2.0.0.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -77,5 +77,8 @@ rm -f %{buildroot}%{rlibdir}/R.css
 
 
 %changelog
+* Thu May 17 2018 Tom Callaway <spot@fedoraproject.org> - 2.0.0.1-2
+- rebuild for R 3.5.0
+
 * Wed Mar 21 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 2.0.0.1-1
 - initial package for Fedora
