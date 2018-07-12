@@ -3,7 +3,7 @@
 
 Name:             R-%{packname}
 Version:          3.1.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -84,6 +84,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 
 
 %changelog
+* Thu Jul 12 2018 Fedora Release Engineering <releng@fedoraproject.org> - 3.1.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
+
 * Thu May 17 2018 Tom Callaway <spot@fedoraproject.org> - 3.1.0-1
 - update to 3.1.0
 
