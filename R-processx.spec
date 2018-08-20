@@ -2,8 +2,8 @@
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          3.1.0
-Release:          2%{?dist}
+Version:          3.2.0
+Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -12,36 +12,37 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.
 
 # Here's the R view of the dependencies world:
 # Depends:
-# Imports:   R-assertthat, R-crayon, R-R6, R-utils
-# Suggests:  R-covr, R-debugme, R-parallel, R-testthat, R-withr
-# LinkingTo: R-testthat
+# Imports:   R-assertthat, R-crayon, R-ps, R-R6, R-utils
+# Suggests:  R-callr, R-covr, R-debugme, R-parallel, R-testthat, R-withr
+# LinkingTo:
 # Enhances:
 
 Requires:         R-assertthat
 Requires:         R-crayon
-Requires:         R-debugme
-Requires:         R-parallel
+Requires:         R-ps
 Requires:         R-R6
 Requires:         R-utils
+Suggests:         R-debugme
 BuildRequires:    R-devel
 BuildRequires:    tex(latex)
 BuildRequires:    R-assertthat
 BuildRequires:    R-crayon
-BuildRequires:    R-debugme
-BuildRequires:    R-parallel
+BuildRequires:    R-ps
 BuildRequires:    R-R6
 BuildRequires:    R-utils
+BuildRequires:    R-callr
+BuildRequires:    R-debugme
+BuildRequires:    R-parallel
 BuildRequires:    R-testthat
 BuildRequires:    R-withr
 
 %description
 Tools to run system processes in the background. It can check if a
 background process is running; wait on a background process to finish; get
-the exit status of finished processes; kill background processes and their
-children; restart processes. It can read the standard output and error of
-the processes, using non-blocking connections. 'processx' can poll a
-process for standard output or error, with a timeout. It can also poll
-several processes at once.
+the exit status of finished processes; kill background processes. It can
+read the standard output and error of the processes, using non-blocking
+connections. 'processx' can poll a process for standard output or error,
+with a timeout. It can also poll several processes at once.
 
 
 %prep
@@ -84,6 +85,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 
 
 %changelog
+* Sun Aug 19 2018 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.2.0-1
+- Update to latest version
+
 * Thu Jul 12 2018 Fedora Release Engineering <releng@fedoraproject.org> - 3.1.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
