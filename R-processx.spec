@@ -2,8 +2,8 @@
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          3.2.0
-Release:          2%{?dist}
+Version:          3.2.1
+Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -12,25 +12,23 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.
 
 # Here's the R view of the dependencies world:
 # Depends:
-# Imports:   R-assertthat, R-crayon, R-ps, R-R6, R-utils
-# Suggests:  R-callr, R-covr, R-debugme, R-parallel, R-testthat, R-withr
+# Imports:   R-ps, R-R6, R-utils
+# Suggests:  R-callr, R-covr, R-crayon, R-debugme, R-parallel, R-testthat, R-withr
 # LinkingTo:
 # Enhances:
 
-Requires:         R-assertthat
-Requires:         R-crayon
 Requires:         R-ps
 Requires:         R-R6
 Requires:         R-utils
+Suggests:         R-crayon
 Suggests:         R-debugme
 BuildRequires:    R-devel
 BuildRequires:    tex(latex)
-BuildRequires:    R-assertthat
-BuildRequires:    R-crayon
 BuildRequires:    R-ps
 BuildRequires:    R-R6
 BuildRequires:    R-utils
 BuildRequires:    R-callr
+BuildRequires:    R-crayon
 BuildRequires:    R-debugme
 BuildRequires:    R-parallel
 BuildRequires:    R-testthat
@@ -61,6 +59,9 @@ mkdir -p %{buildroot}%{rlibdir}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -f %{buildroot}%{rlibdir}/R.css
 
+# FIXME: Why does this not install?
+install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
+
 
 %check
 %{_bindir}/R CMD check %{packname}
@@ -71,7 +72,7 @@ rm -f %{buildroot}%{rlibdir}/R.css
 %doc %{rlibdir}/%{packname}/html
 %{rlibdir}/%{packname}/DESCRIPTION
 %doc %{rlibdir}/%{packname}/NEWS.md
-%doc %{rlibdir}/%{packname}/README.markdown
+%doc %{rlibdir}/%{packname}/README.md
 %doc %{rlibdir}/%{packname}/CODE_OF_CONDUCT.md
 %license %{rlibdir}/%{packname}/LICENSE
 %{rlibdir}/%{packname}/INDEX
@@ -85,6 +86,9 @@ rm -f %{buildroot}%{rlibdir}/R.css
 
 
 %changelog
+* Thu Feb 21 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.2.1-1
+- Update to latest version
+
 * Thu Jan 31 2019 Fedora Release Engineering <releng@fedoraproject.org> - 3.2.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
