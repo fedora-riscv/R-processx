@@ -3,7 +3,7 @@
 
 Name:             R-%{packname}
 Version:          3.2.1
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -64,7 +64,7 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %check
-%{_bindir}/R CMD check %{packname}
+NOT_CRAN=true PROCESSX_EXTRA_TESTS=true %{_bindir}/R CMD check %{packname}
 
 
 %files
@@ -86,6 +86,9 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Wed Mar 06 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.2.1-2
+- Enable more tests
+
 * Thu Feb 21 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.2.1-1
 - Update to latest version
 
