@@ -1,0 +1,13 @@
+diff --git a/tests/testthat/test-pty.R b/tests/testthat/test-pty.R
+index 61b650d..749cfba 100644
+--- a/tests/testthat/test-pty.R
++++ b/tests/testthat/test-pty.R
+@@ -47,7 +47,7 @@ test_that("pty echo", {
+   expect_equal(p$read_output(), "foo")
+ 
+   p$write_input("bar\n")
+-  pr <- p$poll_io(300)
++  pr <- p$poll_io(600)
+   expect_equal(pr[["output"]], "ready")
+   if (pr[["output"]] != "ready") stop("no output")
+   expect_equal(p$read_output(), "bar\r\nfoobar\r\n")
