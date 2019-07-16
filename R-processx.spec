@@ -2,7 +2,7 @@
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          3.3.1
+Version:          3.4.0
 Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
@@ -13,7 +13,7 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.
 # Here's the R view of the dependencies world:
 # Depends:
 # Imports:   R-ps >= 1.2.0, R-R6, R-utils
-# Suggests:  R-callr, R-covr, R-crayon, R-curl, R-debugme, R-parallel, R-testthat, R-withr
+# Suggests:  R-callr >= 3.2.0, R-codetools, R-covr, R-crayon, R-curl, R-debugme, R-parallel, R-testthat, R-withr
 # LinkingTo:
 # Enhances:
 
@@ -28,7 +28,8 @@ BuildRequires:    tex(latex)
 BuildRequires:    R-ps >= 1.2.0
 BuildRequires:    R-R6
 BuildRequires:    R-utils
-BuildRequires:    R-callr
+BuildRequires:    R-callr >= 3.2.0
+BuildRequires:    R-codetools
 BuildRequires:    R-crayon
 BuildRequires:    R-curl
 BuildRequires:    R-debugme
@@ -85,9 +86,13 @@ NOT_CRAN=true PROCESSX_EXTRA_TESTS=true %{_bindir}/R CMD check %{packname}
 %{rlibdir}/%{packname}/bin
 %dir %{rlibdir}/%{packname}/libs
 %{rlibdir}/%{packname}/libs/%{packname}.so
+%{rlibdir}/%{packname}/libs/client.so
 
 
 %changelog
+* Tue Jul 16 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.4.0-1
+- Update to latest version
+
 * Wed May 08 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.3.1-1
 - Update to latest version
 
