@@ -2,7 +2,7 @@
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          3.4.0
+Version:          3.4.1
 Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
@@ -96,6 +96,9 @@ NOT_CRAN=true PROCESSX_EXTRA_TESTS=true %{_bindir}/R CMD check %{packname}
 
 
 %changelog
+* Tue Jul 23 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.4.1-1
+- Update to latest version
+
 * Tue Jul 16 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.4.0-1
 - Update to latest version
 
