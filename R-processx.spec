@@ -9,8 +9,6 @@ Summary:          Execute and Control System Processes
 License:          MIT
 URL:              https://CRAN.R-project.org/package=%{packname}
 Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.tar.gz
-# Increase timeout a bit just to get s390x to work.
-Patch0001:        0001-Increase-test-timeout.patch
 
 # Here's the R view of the dependencies world:
 # Depends:
@@ -73,7 +71,7 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %check
-NOT_CRAN=true PROCESSX_EXTRA_TESTS=true %{_bindir}/R CMD check %{packname}
+%{_bindir}/R CMD check %{packname}
 
 
 %files
