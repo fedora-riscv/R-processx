@@ -49,12 +49,8 @@ with a timeout. It can also poll several processes at once.
 %prep
 %setup -q -c -n %{packname}
 
-pushd %{packname}
-%patch0001 -p1
-
 # Don't need coverage; it's not packaged either.
-sed -i 's/covr, //g' DESCRIPTION
-popd
+sed -i 's/covr, //g' %{packname}/DESCRIPTION
 
 
 %build
