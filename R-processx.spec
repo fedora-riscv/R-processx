@@ -3,7 +3,7 @@
 
 Name:             R-%{packname}
 Version:          3.4.1
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -17,12 +17,6 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.
 # LinkingTo:
 # Enhances:
 
-Requires:         R-ps >= 1.2.0
-Requires:         R-R6
-Requires:         R-utils
-Suggests:         R-crayon
-Suggests:         R-curl
-Suggests:         R-debugme
 BuildRequires:    R-devel
 BuildRequires:    tex(latex)
 BuildRequires:    R-ps >= 1.2.0
@@ -90,6 +84,9 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Sun Aug 11 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.4.1-3
+- Remove explicit dependencies provided by automatic dependency generator
+
 * Wed Jul 24 2019 Fedora Release Engineering <releng@fedoraproject.org> - 3.4.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
