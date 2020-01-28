@@ -3,7 +3,7 @@
 
 Name:             R-%{packname}
 Version:          3.4.1
-Release:          3%{?dist}
+Release:          4%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -84,6 +84,9 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 3.4.1-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
 * Sun Aug 11 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.4.1-3
 - Remove explicit dependencies provided by automatic dependency generator
 
