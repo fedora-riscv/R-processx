@@ -1,14 +1,15 @@
-%global packname  processx
+%global packname processx
+%global packver  3.4.2
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          3.4.1
-Release:          4%{?dist}
+Version:          3.4.2
+Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
 URL:              https://CRAN.R-project.org/package=%{packname}
-Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{version}.tar.gz
+Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{packver}.tar.gz
 
 # Here's the R view of the dependencies world:
 # Depends:
@@ -84,6 +85,9 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Wed Feb 12 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.4.2-1
+- Update to latest version
+
 * Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 3.4.1-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
