@@ -10,6 +10,8 @@ Summary:          Execute and Control System Processes
 License:          MIT
 URL:              https://CRAN.R-project.org/package=%{packname}
 Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{packver}.tar.gz
+# Fix curl test with no network.
+Patch0001:        https://github.com/r-lib/processx/commit/4e3715af514b0187bd47d87e8fd99e17ad1d341c.patch
 
 # Here's the R view of the dependencies world:
 # Depends:
@@ -44,8 +46,12 @@ with a timeout. It can also poll several processes at once.
 %prep
 %setup -q -c -n %{packname}
 
+pushd %{packname}
+%patch0001 -p1
+
 # Don't need coverage; it's not packaged either.
-sed -i 's/covr, //g' %{packname}/DESCRIPTION
+sed -i 's/covr, //g' DESCRIPTION
+popd
 
 
 %build
