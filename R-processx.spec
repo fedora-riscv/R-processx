@@ -1,10 +1,12 @@
+%bcond_with check
+
 %global packname processx
 %global packver  3.4.2
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
 Version:          3.4.2
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -25,6 +27,7 @@ BuildRequires:    tex(latex)
 BuildRequires:    R-ps >= 1.2.0
 BuildRequires:    R-R6
 BuildRequires:    R-utils
+%if %{with check}
 BuildRequires:    R-callr >= 3.2.0
 BuildRequires:    R-codetools
 BuildRequires:    R-crayon
@@ -33,6 +36,7 @@ BuildRequires:    R-debugme
 BuildRequires:    R-parallel
 BuildRequires:    R-testthat
 BuildRequires:    R-withr
+%endif
 
 %description
 Tools to run system processes in the background. It can check if a
@@ -68,7 +72,9 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %check
+%if %{with check}
 %{_bindir}/R CMD check %{packname}
+%endif
 
 
 %files
@@ -91,6 +97,10 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Wed Jun  3 2020 Tom Callaway <spot@fedoraproject.org> - 3.4.2-2
+- rebuild for R 4
+- conditionalize check to break testthat loop
+
 * Wed Feb 12 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.4.2-1
 - Update to latest version
 
