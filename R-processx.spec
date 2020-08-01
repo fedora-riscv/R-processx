@@ -6,7 +6,7 @@
 
 Name:             R-%{packname}
 Version:          3.4.3
-Release:          2%{?dist}
+Release:          3%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -91,6 +91,10 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Sat Aug 01 2020 Fedora Release Engineering <releng@fedoraproject.org> - 3.4.3-3
+- Second attempt - Rebuilt for
+  https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
 * Mon Jul 27 2020 Fedora Release Engineering <releng@fedoraproject.org> - 3.4.3-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
 
