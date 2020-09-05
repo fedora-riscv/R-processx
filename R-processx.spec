@@ -1,12 +1,12 @@
 %bcond_with check
 
 %global packname processx
-%global packver  3.4.3
+%global packver  3.4.4
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          3.4.3
-Release:          3%{?dist}
+Version:          3.4.4
+Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -91,6 +91,9 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Sat Sep 05 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.4.4-1
+- Update to latest version (#1875519)
+
 * Sat Aug 01 2020 Fedora Release Engineering <releng@fedoraproject.org> - 3.4.3-3
 - Second attempt - Rebuilt for
   https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
