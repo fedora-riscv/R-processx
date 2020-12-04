@@ -1,11 +1,11 @@
-%bcond_with check
+%bcond_with bootstrap
 
 %global packname processx
-%global packver  3.4.4
+%global packver  3.4.5
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          3.4.4
+Version:          3.4.5
 Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
@@ -25,7 +25,7 @@ BuildRequires:    tex(latex)
 BuildRequires:    R-ps >= 1.2.0
 BuildRequires:    R-R6
 BuildRequires:    R-utils
-%if %{with check}
+%if %{without bootstrap}
 BuildRequires:    R-callr >= 3.2.0
 BuildRequires:    R-codetools
 BuildRequires:    R-crayon
@@ -66,7 +66,7 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %check
-%if %{with check}
+%if %{without bootstrap}
 %{_bindir}/R CMD check %{packname}
 %endif
 
@@ -91,6 +91,10 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Fri Dec 04 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.4.5-1
+- Update to latest version (#1902707)
+- Rename check conditional to bootstrap
+
 * Sat Sep 05 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.4.4-1
 - Update to latest version (#1875519)
 
