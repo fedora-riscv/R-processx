@@ -6,7 +6,7 @@
 
 Name:             R-%{packname}
 Version:          3.4.5
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -91,6 +91,9 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Mon Jan 25 2021 Fedora Release Engineering <releng@fedoraproject.org> - 3.4.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
 * Fri Dec 04 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.4.5-1
 - Update to latest version (#1902707)
 - Rename check conditional to bootstrap
