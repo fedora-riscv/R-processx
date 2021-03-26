@@ -1,12 +1,12 @@
 %bcond_with bootstrap
 
 %global packname processx
-%global packver  3.4.5
+%global packver  3.5.0
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          3.4.5
-Release:          2%{?dist}
+Version:          3.5.0
+Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -16,7 +16,7 @@ Source0:          https://cran.r-project.org/src/contrib/%{packname}_%{packver}.
 # Here's the R view of the dependencies world:
 # Depends:
 # Imports:   R-ps >= 1.2.0, R-R6, R-utils
-# Suggests:  R-callr >= 3.2.0, R-codetools, R-covr, R-crayon, R-curl, R-debugme, R-parallel, R-testthat, R-withr
+# Suggests:  R-callr >= 3.2.0, R-cli, R-codetools, R-covr, R-curl, R-debugme, R-parallel, R-testthat, R-withr
 # LinkingTo:
 # Enhances:
 
@@ -27,8 +27,8 @@ BuildRequires:    R-R6
 BuildRequires:    R-utils
 %if %{without bootstrap}
 BuildRequires:    R-callr >= 3.2.0
+BuildRequires:    R-cli
 BuildRequires:    R-codetools
-BuildRequires:    R-crayon
 BuildRequires:    R-curl
 BuildRequires:    R-debugme
 BuildRequires:    R-parallel
@@ -91,6 +91,9 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Fri Mar 26 2021 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.5.0-1
+- Update to latest version (#1942163)
+
 * Mon Jan 25 2021 Fedora Release Engineering <releng@fedoraproject.org> - 3.4.5-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
