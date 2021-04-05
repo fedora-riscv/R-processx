@@ -1,11 +1,11 @@
 %bcond_with bootstrap
 
 %global packname processx
-%global packver  3.5.0
+%global packver  3.5.1
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          3.5.0
+Version:          3.5.1
 Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
@@ -91,6 +91,9 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Mon Apr 05 2021 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.5.1-1
+- Update to latest version (#1946117)
+
 * Fri Mar 26 2021 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.5.0-1
 - Update to latest version (#1942163)
 
