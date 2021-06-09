@@ -1,11 +1,11 @@
-%bcond_with bootstrap
+%bcond_without bootstrap
 
 %global packname processx
-%global packver  3.5.1
+%global packver  3.5.2
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          3.5.1
+Version:          3.5.2
 Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
@@ -91,6 +91,11 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Wed Jun  9 2021 Tom Callaway <spot@fedoraproject.org> - 3.5.2-1
+- Update to 3.5.2
+- bootstrap
+- Rebuilt for R 4.1.0
+
 * Mon Apr 05 2021 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 3.5.1-1
 - Update to latest version (#1946117)
 
