@@ -1,4 +1,4 @@
-%bcond_with bootstrap
+%bcond_without bootstrap
 
 %global packname processx
 %global packver  3.5.2
@@ -6,7 +6,7 @@
 
 Name:             R-%{packname}
 Version:          3.5.2
-Release:          2%{?dist}
+Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -91,9 +91,6 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
-* Thu Jun 17 2021 Tom Callaway <spot@fedoraproject.org> - 3.5.2-2
-- bootstrap off
-
 * Wed Jun  9 2021 Tom Callaway <spot@fedoraproject.org> - 3.5.2-1
 - Update to 3.5.2
 - bootstrap
