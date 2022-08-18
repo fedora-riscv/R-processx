@@ -1,12 +1,12 @@
 %bcond_without bootstrap
 
 %global packname processx
-%global packver  3.5.2
+%global packver  3.7.0
 %global rlibdir  %{_libdir}/R/library
 
 Name:             R-%{packname}
-Version:          3.5.2
-Release:          4%{?dist}
+Version:          %{packver}
+Release:          1%{?dist}
 Summary:          Execute and Control System Processes
 
 License:          MIT
@@ -26,13 +26,14 @@ BuildRequires:    R-ps >= 1.2.0
 BuildRequires:    R-R6
 BuildRequires:    R-utils
 %if %{without bootstrap}
-BuildRequires:    R-callr >= 3.2.0
-BuildRequires:    R-cli
+BuildRequires:    R-callr >= 3.7.0
+BuildRequires:    R-cli >= 3.3.0
 BuildRequires:    R-codetools
 BuildRequires:    R-curl
 BuildRequires:    R-debugme
 BuildRequires:    R-parallel
-BuildRequires:    R-testthat
+BuildRequires:    R-rlang >= 1.0.2
+BuildRequires:    R-testthat >= 3.0.0
 BuildRequires:    R-withr
 %endif
 
@@ -84,6 +85,7 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 %{rlibdir}/%{packname}/Meta
 %{rlibdir}/%{packname}/R
 %{rlibdir}/%{packname}/help
+%{rlibdir}/%{packname}/include
 %{rlibdir}/%{packname}/bin
 %dir %{rlibdir}/%{packname}/libs
 %{rlibdir}/%{packname}/libs/%{packname}.so
@@ -91,6 +93,11 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Thu Aug 18 2022 Tom Callaway <spot@fedoraproject.org> - 3.7.0-1
+- update to 3.7.0
+- rebuild for R 4.2.1
+- bootstrap on
+
 * Wed Jul 20 2022 Fedora Release Engineering <releng@fedoraproject.org> - 3.5.2-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
 
