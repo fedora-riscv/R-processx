@@ -1,4 +1,4 @@
-%bcond_with bootstrap
+%bcond_without bootstrap
 
 %global packname processx
 %global packver  3.8.1
@@ -94,6 +94,9 @@ install -pm 0644 %{packname}/README.md %{buildroot}%{rlibdir}/%{packname}/
 
 
 %changelog
+* Tue May 23 2023 Liu Yang <Yang.Liu.sn@gmail.com> - 3.8.1-2~bootstrap
+- Bootstrap for Fedora 38 riscv64 rebuild.
+
 * Fri Apr 21 2023 Iñaki Úcar <iucar@fedoraproject.org> - 3.8.1-2
 - R-maint-sig mass rebuild
 
